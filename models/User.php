@@ -6,10 +6,6 @@ use yii\db\ActiveRecord;
 
 class User extends ActiveRecord
 {
-    public $name;
-    public $surname;
-    public $phone;
-    public $email;
     public static function tableName()
     {
         return 'user';

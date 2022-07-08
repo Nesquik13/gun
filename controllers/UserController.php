@@ -27,14 +27,20 @@ class UserController extends Controller
         }
     }
 
-    public function actionUpdate()
+    public function actionUpdate($id)
     {
-        return $this->render('update');
+        $model = User::findOne($id);
+        if($model->load(Yii::$app->request->post()) && $model->save()){
+            return $this->redirect('create');
+        }
+        return $this->render('create');
     }
 
-    public function actionDelete()
+    public function actionDelete($id)
     {
-        return $this->render('index');
+        $model = User::findOne($id);
+        $model->delete();
+        return $this->redirect('user');
     }
 
     public function actionAuthorization()

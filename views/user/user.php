@@ -11,7 +11,11 @@ echo GridView::widget(
             'name',
             'surname',
             'phone',
-            'email'
+            'email',
+            ['class' => 'yii\grid\ActionColumn']
         ]
     ]
+
 );
+
+
