@@ -28,7 +28,7 @@ AppAsset::register($this);
 <header>
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => 'Shop Gun',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
@@ -37,10 +37,12 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Главная', 'url' => ['/site/index']],
-            ['label' => 'Корзина', 'url' => ['/site/about']],
+            ['label' => 'Главная', 'url' => ['/user/index']],
+            ['label' => 'Пользователи', 'url' => ['/user/user']],
+            ['label' => 'Корзина', 'url' => ['/user/about']],
+            ['label' => 'Войти', 'url' => ['/user/authorization']],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Авторизоваться', 'url' => ['/site/create']]
+                ['label' => 'Зарегистрироваться', 'url' => ['/user/create']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
@@ -51,7 +53,7 @@ AppAsset::register($this);
                 . Html::endForm()
                 . '</li>'
             ),
-            ['label' => 'Зарегестрироваться', 'url' => ['/site/create']]
+
         ]
     ]);
     NavBar::end();

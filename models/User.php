@@ -6,6 +6,14 @@ use yii\db\ActiveRecord;
 
 class User extends ActiveRecord
 {
+    public $name;
+    public $surname;
+    public $phone;
+    public $email;
+    public static function tableName()
+    {
+        return 'user';
+    }
     public function rules()
     {
             return [
@@ -16,10 +24,10 @@ class User extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'name' => 'Имя пользователя',
-            'surname' => 'Фамилия пользователя',
-            'phone' => 'Телефон пользователя',
-            'email' => 'Email пользователя'
+            'name' => 'Имя',
+            'surname' => 'Фамилия',
+            'phone' => 'Номер телефона',
+            'email' => 'Email'
         ];
     }
 }
